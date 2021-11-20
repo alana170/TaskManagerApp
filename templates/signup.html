@@ -1,0 +1,62 @@
+{% extends 'base2.html'%}
+{% load static %}
+
+{% block head %}
+<title> Sign up Page </title>   
+{% endblock %}
+
+
+{% block body %}
+<div class = "centered" style= "background-color:#c5f0e2;">
+<div id ="box" class="container">
+    <div class="container">
+    <div class="title form-group">
+    <div style= "padding:10px"></div>
+
+    <form action="{% url 'signup' %}" method="POST">
+        {% csrf_token %}
+        <h1 style= "color:rgb(0, 0, 0)"> Register Here: </h1>
+        
+        <div style= "padding:5px"></div>
+
+        <label style ="color:black"> Email: </label> <br>
+        <input id ="email" class ="form-control" type="text" name="email" required><br>
+            
+        <div style= "padding:5px"></div>
+
+        <label style ="color:black"> Full Name: </label> <br>
+        <input id ="fullname" class ="form-control" type="text" name="name" required><br>
+    
+        <div style= "padding:5px"></div>
+
+        <label style = "color:black"> Username: </label> <br>
+        <input id ="username" class ="form-control" type="text" name="username" required><br>
+        
+        {% if message %}
+        <label id = "error" style = "color:red"> {{ message }} </label> 
+        {% endif %}
+        
+        <div style= "padding:10px"></div>
+        
+        <br> 
+        <label style = "color:black"> Password: </label> <br>
+        <input id ="password" class ="form-control" type="password" name="password" required><br>
+    
+        <div style= "padding:5px"></div>
+
+        <label style = "color:black">Confirm Password: </label> <br>
+        <input id ="confirmPassword" class ="form-control" type="password" name="password2" required><br>
+        
+        <div style= "padding:5px"></div>
+
+        <input style = "color:black;" class="btn btn-danger" id = "submit" type ="submit" name="Enter" value ="Submit"> <br>
+        
+        <a href="{% url 'index' %}" class ="centered"> <b> Already have an account? Login!</b> </a>
+    </form>
+    <br>
+   
+    </div>
+    </div>
+    </div>
+</div>
+{% endblock %}

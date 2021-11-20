@@ -1,0 +1,43 @@
+{% extends 'base2.html'%}
+
+{% block head %}
+<title> Login </title>   
+{% endblock%}
+
+{% block body%}
+<div class = "centered" style= "background-color:#c5f0e2;">
+    <div id ="box" class="container">
+        <div class="container">
+        <div class="title form-group">
+        <div style= "padding:20px"></div>
+    
+        <form action="{% url 'index' %}" method="POST">
+            {% csrf_token %}
+            <h1 style= "color:rgb(0, 0, 0)"> Register Here: </h1>
+            
+            <div style= "padding:10px"></div>
+    
+            <label style = "color:black"> Username: </label> <br>
+            <input id ="username" class ="form-control" type="text" name="username" required><br>
+        
+            <div style= "padding:5px"></div>
+    
+            <label id = "error" style = "color:red"> </label> 
+            <br> 
+            <label style = "color:black"> Password: </label> <br>
+            <input id ="password" class ="form-control" type="password" name="password" required><br>
+        
+            <div style= "padding:5px"></div>
+    
+            <input style = "color:black;" class="btn btn-danger" id = "submit" type ="submit" name="Enter" value ="Submit"> <br>
+            
+            <a href="{% url 'signup' %}" class ="centered"> <b>  New User? Create an account.  </b> </a>
+        </form>
+        <br>
+       
+        </div>
+        </div>
+        </div>
+    </div>
+
+{% endblock %}

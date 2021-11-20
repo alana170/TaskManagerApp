@@ -1,0 +1,43 @@
+{% extends 'base2.html'%}
+{% load static %}
+
+{% block head %}
+<title> Login </title>  
+{% endblock %}
+
+{% block body %}
+<img class="wave" src="{% static 'wave.png' %}">
+	<div class="container"> 
+		<div class="img">
+			<img src="{% static 'bg.svg' %}">
+		</div>
+		<div class="login-content">
+			<form action="{% url 'index' %}" method = "POST">
+				{% csrf_token %}
+				<img src="{% static 'avatar.svg' %}">
+				<h2 class="title">Welcome</h2>
+           		<div class="input-div one">
+           		   <div class="i">
+           		   		<i class="fas fa-user"></i>
+           		   </div>
+           		   <div class="div">
+           		   		<input id="usm" type="text" class="input">
+           		   </div>
+           		</div>
+           		<div class="input-div pass">
+           		   <div class="i"> 
+           		    	<i class="fas fa-lock"></i>
+           		   </div>
+           		   <div class="div">
+           		    	<input id="pwd" type="password" class="input">
+            	   </div>
+            	</div>
+				
+            	<a href= "{% url 'signup' %}"> New User? Create an account. </a>
+				<input style = "color:black;" class="btn btn-danger" id = "submit" type ="submit" name="Enter" value ="Submit"> <br>
+				
+            </form>
+        </div>
+	</div>
+
+{% endblock %}
